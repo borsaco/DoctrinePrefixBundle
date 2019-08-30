@@ -7,13 +7,11 @@ You can configure prefixes and base naming strategy in config files:
 
 ```yaml
 doctrine:
-    # ...
-    orm:
-        # ...
-        naming_strategy: doctrine_prefix.prefix_naming_strategy
+  orm:
+    naming_strategy: Borsaco\DoctrinePrefixBundle\Doctrine\ORM\Mapping\PrefixNamingStrategy
 
 doctrine_prefix:
-    table_prefix: bo_ # default ''
-    column_prefix: sa_ # default ''
-    naming_strategy: doctrine.orm.naming_strategy.underscore # default - 'doctrine.orm.naming_strategy.default'
+  table_prefix: bor_
+  column_prefix: sac_
+  naming_strategy: doctrine.orm.naming_strategy.underscore
 ```
