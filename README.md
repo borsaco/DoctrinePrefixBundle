@@ -1,6 +1,13 @@
 # DoctrinePrefixBundle
 Bundle to add prefix to tables and columns database
 
+### Install
+Via Composer
+
+```
+composer require borsaco/doctrine-prefix-bundle
+```
+
 ### Configuration example
 
 You can configure prefixes and base naming strategy in config files:
