@@ -25,18 +25,25 @@ class PrefixNamingStrategy implements NamingStrategy
     protected $columnPrefix;
 
     /**
+     * @var array
+     */
+
+    protected $config;
+
+    /**
      * @param string $tablePrefix
      * @param string $columnPrefix
      */
-    public function __construct($tablePrefix, $columnPrefix)
+    public function __construct($config)
     {
-        $this->tablePrefix = $tablePrefix;
-        $this->columnPrefix = $columnPrefix;
+        $this->config = $config;
+        $this->tablePrefix = $config['table_prefix'];
+        $this->columnPrefix = $config['column_prefix'];
     }
 
-    public function setStrategy($strategyType)
+    public function setStrategy()
     {
-        $strategyClass = $this->container->getParameter($strategyType.'.class');
+        $strategyClass = $this->container->getParameter("{$this->config['naming_strategy']}.class");
         $this->strategy = new $strategyClass;
     }
 
@@ -47,6 +54,10 @@ class PrefixNamingStrategy implements NamingStrategy
 
     public function propertyToColumnName($propertyName, $className = null)
     {
+        if($this->strategy->propertyToColumnName($propertyName, $className) == 'id') {
+            return 'id';
+        }
+
         return $this->columnPrefix . $this->strategy->propertyToColumnName($propertyName, $className);
     }
 
@@ -57,11 +68,15 @@ class PrefixNamingStrategy implements NamingStrategy
 
     public function referenceColumnName()
     {
-        return $this->columnPrefix . $this->strategy->referenceColumnName();
+        return 'id';
     }
 
     public function joinColumnName($propertyName)
     {
+        if($this->strategy->joinColumnName($propertyName) == 'id') {
+            return 'id';
+        }
+
         return $this->columnPrefix . $this->strategy->joinColumnName($propertyName);
     }
 
@@ -72,6 +87,10 @@ class PrefixNamingStrategy implements NamingStrategy
 
     public function joinKeyColumnName($entityName, $referencedColumnName = null)
     {
+        if($this->strategy->joinKeyColumnName($entityName, $referencedColumnName) == 'id') {
+            return 'id';
+        }
+
         return $this->columnPrefix . $this->strategy->joinKeyColumnName($entityName, $referencedColumnName);
     }
 }
