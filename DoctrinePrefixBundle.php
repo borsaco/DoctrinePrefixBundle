@@ -1,9 +1,9 @@
 <?php
 
-namespace Borsaco\TelegramBotApiBundle;
+namespace Borsaco\DoctrinePrefixBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class TelegramBotApiBundle extends Bundle
+class DoctrinePrefixBundle extends Bundle
 {
 }
