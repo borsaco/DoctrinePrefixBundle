@@ -13,6 +13,8 @@ composer require borsaco/doctrine-prefix-bundle
 You can configure prefixes and base naming strategy in config files:
 
 ```yaml
+config/packages/doctrine_prefix.yaml
+
 doctrine:
   orm:
     naming_strategy: Borsaco\DoctrinePrefixBundle\Doctrine\ORM\Mapping\PrefixNamingStrategy
