@@ -1,6 +1,6 @@
 services:
     Borsaco\DoctrinePrefixBundle\Doctrine\ORM\Mapping\PrefixNamingStrategy:
-        arguments: ['%doctrine_prefix_bundle.config.table_prefix%', '%doctrine_prefix_bundle.config.column_prefix%']
+        arguments: ['%doctrine_prefix_bundle.config%']
         calls:
             - [setContainer, ['@service_container']]
-            - [setStrategy, ['%doctrine_prefix_bundle.config.naming_strategy%']]
+            - [setStrategy]
