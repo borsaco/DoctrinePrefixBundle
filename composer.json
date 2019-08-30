@@ -1,0 +1,27 @@
+{
+  "name": "borsaco/doctrine-prefix-bundle",
+  "type": "symfony-bundle",
+  "description": "Bundle to add prefix to tables and columns database",
+  "keywords": ["doctrine-bundle", "prefix", "doctrine", "php", "symfony"],
+  "homepage": "https://borsaco.ir",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "version": "1.0.0",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Alireza Seddighi",
+      "email": "seddighi@borsaco.ir",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "symfony/framework-bundle": "^3.4|^4.0",
+    "doctrine/orm": "*",
+    "doctrine/doctrine-bundle": "*"
+  },
+  "autoload": {
+    "psr-4": { "Borsaco\\DoctrinePrefixBundle\\": "" }
+  }
+}
