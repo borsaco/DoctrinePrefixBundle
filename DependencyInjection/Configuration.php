@@ -21,7 +21,10 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->scalarNode('table_prefix')->defaultValue('')->end()
             ->scalarNode('column_prefix')->defaultValue('')->end()
-            ->scalarNode('naming_strategy')->defaultValue('doctrine.orm.naming_strategy.default')->end()
+            ->arrayNode('naming_strategy')->children()
+                ->scalarNode('class')->defaultValue('Doctrine\ORM\Mapping\UnderscoreNamingStrategy')->end()
+                ->arrayNode('arguments')->scalarPrototype()->end()
+            ->end()
             ->end();
 
         return $builder;
