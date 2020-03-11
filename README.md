@@ -22,5 +22,7 @@ doctrine:
 doctrine_prefix:
   table_prefix: bor_
   column_prefix: sac_
-  naming_strategy: doctrine.orm.naming_strategy.underscore
+    naming_strategy:
+      class: 'Doctrine\ORM\Mapping\UnderscoreNamingStrategy'
+      arguments: ['CASE_LOWER', true]
 ```
