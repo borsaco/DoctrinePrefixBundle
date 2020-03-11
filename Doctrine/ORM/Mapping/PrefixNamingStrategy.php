@@ -43,8 +43,8 @@ class PrefixNamingStrategy implements NamingStrategy
 
     public function setStrategy()
     {
-        $strategyClass = $this->container->getParameter("{$this->config['naming_strategy']}.class");
-        $this->strategy = new $strategyClass;
+        $reflectionClass = new \ReflectionClass($this->config['naming_strategy']['class']);
+        $this->strategy = $reflectionClass->newInstanceArgs($this->config['naming_strategy']['arguments']);
     }
 
     public function classToTableName($className)
